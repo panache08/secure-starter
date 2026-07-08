@@ -40,3 +40,11 @@ table, and verify every inbound webhook signature.
   Vercel. Set `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`.
 - **CSP is nonce-based in production.** Any inline `<script>` you add must carry
   the nonce from `headers().get('x-nonce')` (see `app/layout.tsx`).
+
+## Author
+
+**Donovan Panashe** ([@panache08](https://github.com/panache08))
+
+## License
+
+[MIT](./LICENSE) © 2026 Donovan Panashe

@@ -3,6 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "description": "Security-first Next.js + Supabase starter (hardened).",
+  "author": "Donovan Panashe (panache08)",
+  "contributors": [
+    "Donovan Panashe (panache08) <donovanmudarikwa@gmail.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/panache08/secure-starter.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
