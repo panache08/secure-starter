@@ -93,6 +93,36 @@ const styles = {
       paragraph: { spacing: { before: 200, after: 120, line: 276 } },
     },
     {
+      id: "InvoiceTitle", name: "EU Invoice Title", basedOn: "Normal", next: "Normal",
+      run: { font: FONT, size: 44, bold: true, color: "FFFFFF", characterSpacing: 40 },
+      paragraph: { spacing: { before: 0, after: 0 }, alignment: "right" },
+    },
+    {
+      id: "BlockLabel", name: "EU Block Label", basedOn: "Normal", next: "Normal", quickFormat: true,
+      run: { font: FONT, size: 16, bold: true, color: RED, allCaps: true, characterSpacing: 40 },
+      paragraph: { spacing: { before: 0, after: 60 }, line: 240 },
+    },
+    {
+      id: "BlockText", name: "EU Block Text", basedOn: "Normal", next: "BlockText", quickFormat: true,
+      run: { font: FONT, size: 18, color: INK },
+      paragraph: { spacing: { before: 0, after: 20 }, line: 240 },
+    },
+    {
+      id: "BlockName", name: "EU Block Name", basedOn: "Normal", next: "BlockText", quickFormat: true,
+      run: { font: FONT, size: 21, bold: true, color: NAVY },
+      paragraph: { spacing: { before: 0, after: 40 }, line: 240 },
+    },
+    {
+      id: "Money", name: "EU Money", basedOn: "Normal", next: "Normal", quickFormat: true,
+      run: { font: FONT, size: 19, color: INK },
+      paragraph: { spacing: { before: 50, after: 50 }, line: 240, alignment: "right" },
+    },
+    {
+      id: "GrandTotal", name: "EU Grand Total", basedOn: "Normal", next: "Normal",
+      run: { font: FONT, size: 23, bold: true, color: "FFFFFF" },
+      paragraph: { spacing: { before: 70, after: 70 }, line: 240, alignment: "right" },
+    },
+    {
       id: "BrandFooter", name: "EU Brand Footer", basedOn: "Normal", next: "Normal",
       run: { font: FONT, size: 15, color: SLATE },
       paragraph: { spacing: { before: 0, after: 0 }, alignment: "center" },
