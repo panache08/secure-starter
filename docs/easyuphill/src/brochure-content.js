@@ -12,16 +12,18 @@ module.exports = {
   // three days is Monday to Wednesday. R13,000 is BMC's own three-day rand rate.
   calendarHeading: "2026 Course Calendar",
   calendarColumns: ["Dates", "Venue", "Fee"],
-  // Fortnightly. Clear of the Day of Reconciliation (16 December) and the
-  // Christmas shutdown, which BMC's generated sessions do not avoid.
+  // Fortnightly, Monday to Wednesday. Every start is at least 14 days out —
+  // the same LEAD_DAYS rule the BMC generator uses, so nothing is advertised
+  // that cannot still be booked. Clear of Heritage Day (24 September) and
+  // the Day of Reconciliation (16 December).
   calendar: [
-    ["31 August to 2 September 2026", "Online", "R13,000"],
-    ["14 to 16 September 2026", "Online", "R13,000"],
-    ["28 to 30 September 2026", "Online", "R13,000"],
-    ["12 to 14 October 2026", "Online", "R13,000"],
-    ["26 to 28 October 2026", "Online", "R13,000"],
-    ["9 to 11 November 2026", "Online", "R13,000"],
-    ["23 to 25 November 2026", "Online", "R13,000"],
+    ["7 to 9 September 2026", "Online", "R13,000"],
+    ["21 to 23 September 2026", "Online", "R13,000"],
+    ["5 to 7 October 2026", "Online", "R13,000"],
+    ["19 to 21 October 2026", "Online", "R13,000"],
+    ["2 to 4 November 2026", "Online", "R13,000"],
+    ["16 to 18 November 2026", "Online", "R13,000"],
+    ["30 November to 2 December 2026", "Online", "R13,000"],
     ["7 to 9 December 2026", "Online", "R13,000"],
   ],
   // Wording follows the BMC schedule footnote and terms page.
