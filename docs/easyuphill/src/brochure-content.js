@@ -6,12 +6,21 @@ module.exports = {
     "Drive operational excellence and strategic transformation: master the leadership, " +
     "innovation and governance required to perform at board level.",
 
-  facts: [
+  // Fixed for every intake — the varying part is the schedule below.
+  meta: [
     ["Format", "Virtual / Online"],
-    ["Dates", "2 \u2013 4 September 2026"],
     ["Duration", "3 Days"],
     ["Certificate", "On Completion"],
   ],
+
+  scheduleHeading: "2026 Intake Dates",
+  // Wednesday to Friday throughout, avoiding Heritage Day (24 Sep),
+  // Day of Reconciliation (16 Dec) and the December shutdown.
+  schedule: [
+    "26 – 28 August", "2 – 4 September", "16 – 18 September", "7 – 9 October",
+    "21 – 23 October", "4 – 6 November", "18 – 20 November", "2 – 4 December",
+  ],
+  scheduleNote: "All intakes run Wednesday to Friday.",
 
   overview:
     "The Chief Operating Officer leads an organisation's operations and logistics functions, " +

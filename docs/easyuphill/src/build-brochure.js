@@ -23,14 +23,18 @@ const BULLETS = {
 const bullet = (text) =>
   new Paragraph({ text, style: "ListParagraph", numbering: { reference: "eu-bullets", level: 0 } });
 const h1 = (text) => new Paragraph({ text, heading: HeadingLevel.HEADING_1 });
+const split = (n) => {
+  const w = Math.floor(CONTENT_WIDTH / n);
+  return Array.from({ length: n }, (_, i) => (i === n - 1 ? CONTENT_WIDTH - w * (n - 1) : w));
+};
 
-// The four-up fact strip: label row on navy, values on a pale tint.
-function factStrip() {
-  const widths = [2300, 3100, 2100, CONTENT_WIDTH - 2300 - 3100 - 2100];
-  const cell = (children, width, fill) => new TableCell({
-    children, width: { size: width, type: WidthType.DXA },
+// One compact bar for the things that never change between intakes.
+function metaStrip() {
+  const w = [3400, 2700, CONTENT_WIDTH - 3400 - 2700];
+  const box = (children, i, fill) => new TableCell({
+    children, width: { size: w[i], type: WidthType.DXA },
     shading: { type: ShadingType.CLEAR, fill, color: "auto" },
-    margins: { top: 80, bottom: 80, left: 140, right: 140 },
+    margins: { top: 70, bottom: 70, left: 140, right: 140 },
     verticalAlign: VerticalAlign.CENTER,
     borders: {
       top: NONE, bottom: NONE,
@@ -40,22 +44,48 @@ function factStrip() {
   });
   return new Table({
     width: { size: CONTENT_WIDTH, type: WidthType.DXA },
-    columnWidths: widths,
-    rows: [
-      new TableRow({
-        tableHeader: true,
-        children: C.facts.map(([label], i) =>
-          cell([new Paragraph({ style: "TableHead", children: [new TextRun(label)] })], widths[i], NAVY)),
-      }),
-      new TableRow({
-        children: C.facts.map(([, value], i) =>
-          cell([new Paragraph({
-            style: "FieldEntry",
-            children: [new TextRun({ text: value, bold: true, color: NAVY })],
-          })], widths[i], TINT)),
-      }),
-    ],
+    columnWidths: w,
+    rows: [new TableRow({
+      children: C.meta.map(([label, value], i) => box([new Paragraph({
+        style: "FieldEntry",
+        spacing: { before: 0, after: 0 },
+        children: [
+          new TextRun({ text: `${label.toUpperCase()}   `, size: 15, bold: true, color: "9DC0F0", characterSpacing: 30 }),
+          new TextRun({ text: value, bold: true, color: WHITE }),
+        ],
+      })], i, NAVY)),
+    })],
   });
+}
+
+// Every 2026 intake at a glance: four across, two deep.
+function scheduleGrid() {
+  const per = 4;
+  const w = split(per);
+  const rows = [];
+  for (let i = 0; i < C.schedule.length; i += per) {
+    rows.push(new TableRow({
+      children: C.schedule.slice(i, i + per).map((date, j) => new TableCell({
+        width: { size: w[j], type: WidthType.DXA },
+        shading: { type: ShadingType.CLEAR, fill: TINT, color: "auto" },
+        margins: { top: 80, bottom: 80, left: 140, right: 140 },
+        verticalAlign: VerticalAlign.CENTER,
+        borders: {
+          top: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
+          bottom: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
+          left: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
+          right: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
+        },
+        children: [new Paragraph({
+          style: "FieldEntry",
+          spacing: { before: 0, after: 0 },
+          alignment: AlignmentType.CENTER,
+          children: [new TextRun({ text: date, bold: true, color: NAVY })],
+        })],
+      })),
+    }));
+  }
+  return new Table({ width: { size: CONTENT_WIDTH, type: WidthType.DXA }, columnWidths: w, rows });
 }
 
 // "Day 1  ·  Theme" as a single tinted band — one paragraph, easy to retype.
@@ -102,8 +132,13 @@ const doc = new Document({
       new Paragraph({ style: "Kicker", children: [new TextRun(C.kicker)] }),
       new Paragraph({ text: C.title, heading: HeadingLevel.TITLE }),
       new Paragraph({ style: "Standfirst", children: [new TextRun(C.standfirst)] }),
-      factStrip(),
-      new Paragraph({ spacing: { after: 0 }, children: [] }),
+      metaStrip(),
+      h1(C.scheduleHeading),
+      scheduleGrid(),
+      new Paragraph({
+        style: "Meta", spacing: { before: 90, after: 0 },
+        children: [new TextRun(C.scheduleNote)],
+      }),
 
       h1("Programme Overview"),
       new Paragraph({ style: "Lead", children: [new TextRun(C.overview)] }),
@@ -113,7 +148,12 @@ const doc = new Document({
       ...C.gains.map(bullet),
 
       h1("Who Should Attend"),
-      ...C.audience.map(bullet),
+      new Paragraph({
+        style: "Topics",
+        children: C.audience.flatMap((a, i) => (i === 0 ? [] : [
+          new TextRun({ text: "  ·  ", style: "Separator" }),
+        ]).concat(new TextRun(a))),
+      }),
 
       h1(C.certificateHeading),
       // Certificate + call to action share one tinted callout, so the pitch closes on page one.
