@@ -8,7 +8,7 @@ module.exports = {
 
   facts: [
     ["Format", "Virtual / Online"],
-    ["Dates", "2 to 4 September"],
+    ["Dates", "2 \u2013 4 September 2026"],
     ["Duration", "3 Days"],
     ["Certificate", "On Completion"],
   ],

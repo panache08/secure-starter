@@ -26,9 +26,9 @@ module.exports = {
   },
 
   details: [
-    ["Invoice No.", "[ EU-INV-2026-000 ]"],
-    ["Issue Date", "[ 00 Month 2026 ]"],
-    ["Due Date", "[ 00 Month 2026 ]"],
+    ["Invoice No.", "[ EU-INV-0000 ]"],
+    ["Issue Date", "[ DD Month YYYY ]"],
+    ["Due Date", "[ DD Month YYYY ]"],
     ["Terms", "Net 14"],
   ],
 

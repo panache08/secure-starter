@@ -26,8 +26,7 @@ const h1 = (text) => new Paragraph({ text, heading: HeadingLevel.HEADING_1 });
 
 // The four-up fact strip: label row on navy, values on a pale tint.
 function factStrip() {
-  const w = Math.floor(CONTENT_WIDTH / 4);
-  const widths = [w, w, w, CONTENT_WIDTH - 3 * w];
+  const widths = [2300, 3100, 2100, CONTENT_WIDTH - 2300 - 3100 - 2100];
   const cell = (children, width, fill) => new TableCell({
     children, width: { size: width, type: WidthType.DXA },
     shading: { type: ShadingType.CLEAR, fill, color: "auto" },
