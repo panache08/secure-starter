@@ -22,6 +22,19 @@ module.exports = {
   ],
   scheduleNote: "All intakes run Wednesday to Friday.",
 
+  feesHeading: "Fees",
+  // PROPOSED figures — confirm before publishing. Benchmarked against BMC Training
+  // (GBP 4,950 for 5 days, in person, London) scaled to SA virtual delivery.
+  fees: [
+    ["Standard", "R13 500"],
+    ["Early booking", "R11 500"],
+    ["Group of 3 or more", "R10 900"],
+  ],
+  feesNote:
+    "Per delegate, excluding VAT. Early booking applies 30 days before commencement. " +
+    "Fees cover tuition, all course materials and the Certificate of Completion. " +
+    "In-house programmes for your own team from R89 000 (up to 12 delegates).",
+
   overview:
     "The Chief Operating Officer leads an organisation's operations and logistics functions, " +
     "transforming the business into a high-performing, cost-effective enterprise. It remains one " +

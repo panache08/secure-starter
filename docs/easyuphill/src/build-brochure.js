@@ -1,7 +1,7 @@
 const fs = require("fs");
 const {
   Document, Packer, Paragraph, TextRun, HeadingLevel, Table, TableRow, TableCell,
-  WidthType, BorderStyle, ShadingType, AlignmentType, VerticalAlign, LevelFormat, PageBreak,
+  WidthType, BorderStyle, ShadingType, AlignmentType, VerticalAlign, LevelFormat,
 } = require("docx");
 const { NAVY, RED, INK, SLATE, TINT, WHITE, FONT, PAGE, CONTENT_WIDTH } = require("./brand");
 const { styles } = require("./styles");
@@ -88,6 +88,40 @@ function scheduleGrid() {
   return new Table({ width: { size: CONTENT_WIDTH, type: WidthType.DXA }, columnWidths: w, rows });
 }
 
+// Fees: label over figure, three across.
+function feesGrid() {
+  const w = split(C.fees.length);
+  const box = (children, i, fill, top) => new TableCell({
+    children, width: { size: w[i], type: WidthType.DXA },
+    shading: { type: ShadingType.CLEAR, fill, color: "auto" },
+    margins: { top: top ? 90 : 20, bottom: top ? 20 : 90, left: 140, right: 140 },
+    verticalAlign: VerticalAlign.CENTER,
+    borders: {
+      top: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
+      bottom: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
+      left: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
+      right: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
+    },
+  });
+  const line = (fn, top) => new TableRow({
+    children: C.fees.map((f, i) => box([fn(f, i)], i, TINT, top)),
+  });
+  return new Table({
+    width: { size: CONTENT_WIDTH, type: WidthType.DXA },
+    columnWidths: w,
+    rows: [
+      line(([label]) => new Paragraph({
+        style: "TableHead", spacing: { before: 0, after: 0 }, alignment: AlignmentType.CENTER,
+        children: [new TextRun({ text: label, color: SLATE })],
+      }), true),
+      line(([, amount]) => new Paragraph({
+        style: "FieldEntry", spacing: { before: 0, after: 0 }, alignment: AlignmentType.CENTER,
+        children: [new TextRun({ text: amount, bold: true, size: 28, color: NAVY })],
+      }), false),
+    ],
+  });
+}
+
 // "Day 1  ·  Theme" as a single tinted band — one paragraph, easy to retype.
 function dayBand(day, theme) {
   return new Paragraph({
@@ -140,6 +174,13 @@ const doc = new Document({
         children: [new TextRun(C.scheduleNote)],
       }),
 
+      h1(C.feesHeading),
+      feesGrid(),
+      new Paragraph({
+        style: "Meta", spacing: { before: 90, after: 0 },
+        children: [new TextRun(C.feesNote)],
+      }),
+
       h1("Programme Overview"),
       new Paragraph({ style: "Lead", children: [new TextRun(C.overview)] }),
       ...C.responsibilities.map(bullet),
@@ -155,26 +196,17 @@ const doc = new Document({
         ]).concat(new TextRun(a))),
       }),
 
-      h1(C.certificateHeading),
-      // Certificate + call to action share one tinted callout, so the pitch closes on page one.
-      new Paragraph({
-        style: "Lead",
-        spacing: { before: 40, after: 0 },
-        shading: { type: ShadingType.CLEAR, fill: TINT, color: "auto" },
-        border: { left: { style: BorderStyle.SINGLE, size: 18, space: 8, color: NAVY } },
-        indent: { left: 140, right: 140 },
-        children: [new TextRun(C.certificate)],
-      }),
       new Paragraph({
         style: "Closing",
-        spacing: { before: 40, after: 60 },
+        spacing: { before: 240, after: 60 },
         shading: { type: ShadingType.CLEAR, fill: TINT, color: "auto" },
         border: { left: { style: BorderStyle.SINGLE, size: 18, space: 8, color: NAVY } },
         indent: { left: 140, right: 140 },
         children: [new TextRun(C.closing)],
       }),
-      new Paragraph({ children: [new PageBreak()] }),
-      h1("Course Agenda"),
+      new Paragraph({
+        text: "Course Agenda", heading: HeadingLevel.HEADING_1, pageBreakBefore: true,
+      }),
       ...agenda,
 
     ],
