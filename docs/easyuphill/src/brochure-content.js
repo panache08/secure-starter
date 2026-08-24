@@ -6,34 +6,29 @@ module.exports = {
     "Drive operational excellence and strategic transformation: master the leadership, " +
     "innovation and governance required to perform at board level.",
 
-  // Fixed for every intake — the varying part is the schedule below.
-  meta: [
-    ["Format", "Virtual / Online"],
-    ["Duration", "3 Days"],
-    ["Certificate", "On Completion"],
+  // Calendar mirrors the BMC Training site: Dates | Venue | Fee, dates written
+  // "7 to 9 September 2026" (formatDateRange collapses the repeated month and
+  // year), fees "R13,000" (formatPrice). BMC runs every course Monday start;
+  // three days is Monday to Wednesday. R13,000 is BMC's own three-day rand rate.
+  calendarHeading: "2026 Course Calendar",
+  calendarColumns: ["Dates", "Venue", "Fee"],
+  // Fortnightly. Clear of the Day of Reconciliation (16 December) and the
+  // Christmas shutdown, which BMC's generated sessions do not avoid.
+  calendar: [
+    ["31 August to 2 September 2026", "Online", "R13,000"],
+    ["14 to 16 September 2026", "Online", "R13,000"],
+    ["28 to 30 September 2026", "Online", "R13,000"],
+    ["12 to 14 October 2026", "Online", "R13,000"],
+    ["26 to 28 October 2026", "Online", "R13,000"],
+    ["9 to 11 November 2026", "Online", "R13,000"],
+    ["23 to 25 November 2026", "Online", "R13,000"],
+    ["7 to 9 December 2026", "Online", "R13,000"],
   ],
-
-  scheduleHeading: "2026 Intake Dates",
-  // Wednesday to Friday throughout, avoiding Heritage Day (24 Sep),
-  // Day of Reconciliation (16 Dec) and the December shutdown.
-  schedule: [
-    "26 – 28 August", "2 – 4 September", "16 – 18 September", "7 – 9 October",
-    "21 – 23 October", "4 – 6 November", "18 – 20 November", "2 – 4 December",
-  ],
-  scheduleNote: "All intakes run Wednesday to Friday.",
-
-  feesHeading: "Fees",
-  // PROPOSED figures — confirm before publishing. Benchmarked against BMC Training
-  // (GBP 4,950 for 5 days, in person, London) scaled to SA virtual delivery.
-  fees: [
-    ["Standard", "R13 500"],
-    ["Early booking", "R11 500"],
-    ["Group of 3 or more", "R10 900"],
-  ],
-  feesNote:
-    "Per delegate, excluding VAT. Early booking applies 30 days before commencement. " +
-    "Fees cover tuition, all course materials and the Certificate of Completion. " +
-    "In-house programmes for your own team from R89 000 (up to 12 delegates).",
+  // Wording follows the BMC schedule footnote and terms page.
+  calendarNote:
+    "Every session runs three days, Monday to Wednesday. Fees are per delegate and exclude 15% VAT. " +
+    "The fee covers tuition, course materials and a certificate of completion. More dates are " +
+    "available on enquiry.",
 
   overview:
     "The Chief Operating Officer leads an organisation's operations and logistics functions, " +

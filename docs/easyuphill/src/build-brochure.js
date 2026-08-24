@@ -28,98 +28,47 @@ const split = (n) => {
   return Array.from({ length: n }, (_, i) => (i === n - 1 ? CONTENT_WIDTH - w * (n - 1) : w));
 };
 
-// One compact bar for the things that never change between intakes.
-function metaStrip() {
-  const w = [3400, 2700, CONTENT_WIDTH - 3400 - 2700];
-  const box = (children, i, fill) => new TableCell({
-    children, width: { size: w[i], type: WidthType.DXA },
-    shading: { type: ShadingType.CLEAR, fill, color: "auto" },
-    margins: { top: 70, bottom: 70, left: 140, right: 140 },
-    verticalAlign: VerticalAlign.CENTER,
-    borders: {
-      top: NONE, bottom: NONE,
-      left: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-      right: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-    },
-  });
-  return new Table({
-    width: { size: CONTENT_WIDTH, type: WidthType.DXA },
-    columnWidths: w,
-    rows: [new TableRow({
-      children: C.meta.map(([label, value], i) => box([new Paragraph({
-        style: "FieldEntry",
-        spacing: { before: 0, after: 0 },
-        children: [
-          new TextRun({ text: `${label.toUpperCase()}   `, size: 15, bold: true, color: "9DC0F0", characterSpacing: 30 }),
-          new TextRun({ text: value, bold: true, color: WHITE }),
-        ],
-      })], i, NAVY)),
-    })],
-  });
-}
+// Course calendar: one bookable row per session — dates, duration, format, fee.
+function calendarTable() {
+  const wDates = 5200, wVenue = 2800;
+  const w = [wDates, wVenue, CONTENT_WIDTH - wDates - wVenue];
+  const aligns = [AlignmentType.LEFT, AlignmentType.LEFT, AlignmentType.RIGHT];
+  const edge = { style: BorderStyle.SINGLE, size: 8, color: WHITE };
 
-// Every 2026 intake at a glance: four across, two deep.
-function scheduleGrid() {
-  const per = 4;
-  const w = split(per);
-  const rows = [];
-  for (let i = 0; i < C.schedule.length; i += per) {
-    rows.push(new TableRow({
-      children: C.schedule.slice(i, i + per).map((date, j) => new TableCell({
-        width: { size: w[j], type: WidthType.DXA },
-        shading: { type: ShadingType.CLEAR, fill: TINT, color: "auto" },
-        margins: { top: 80, bottom: 80, left: 140, right: 140 },
-        verticalAlign: VerticalAlign.CENTER,
-        borders: {
-          top: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-          bottom: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-          left: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-          right: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-        },
-        children: [new Paragraph({
-          style: "FieldEntry",
-          spacing: { before: 0, after: 0 },
-          alignment: AlignmentType.CENTER,
-          children: [new TextRun({ text: date, bold: true, color: NAVY })],
+  const header = new TableRow({
+    tableHeader: true,
+    children: C.calendarColumns.map((label, i) => new TableCell({
+      width: { size: w[i], type: WidthType.DXA },
+      shading: { type: ShadingType.CLEAR, fill: NAVY, color: "auto" },
+      margins: { top: 70, bottom: 70, left: 140, right: 140 },
+      verticalAlign: VerticalAlign.CENTER,
+      borders: { top: edge, bottom: edge, left: edge, right: edge },
+      children: [new Paragraph({
+        style: "TableHead", spacing: { before: 0, after: 0 },
+        alignment: aligns[i], children: [new TextRun(label)],
+      })],
+    })),
+  });
+
+  const rows = C.calendar.map((session, r) => new TableRow({
+    children: session.map((value, i) => new TableCell({
+      width: { size: w[i], type: WidthType.DXA },
+      shading: { type: ShadingType.CLEAR, fill: r % 2 ? WHITE : TINT, color: "auto" },
+      margins: { top: 60, bottom: 60, left: 140, right: 140 },
+      verticalAlign: VerticalAlign.CENTER,
+      borders: { top: edge, bottom: edge, left: edge, right: edge },
+      children: [new Paragraph({
+        style: "FieldEntry", spacing: { before: 0, after: 0 }, alignment: aligns[i],
+        children: [new TextRun({
+          text: value,
+          bold: i === 0 || i === 2,
+          color: i === 0 || i === 2 ? NAVY : INK,
         })],
-      })),
-    }));
-  }
-  return new Table({ width: { size: CONTENT_WIDTH, type: WidthType.DXA }, columnWidths: w, rows });
-}
+      })],
+    })),
+  }));
 
-// Fees: label over figure, three across.
-function feesGrid() {
-  const w = split(C.fees.length);
-  const box = (children, i, fill, top) => new TableCell({
-    children, width: { size: w[i], type: WidthType.DXA },
-    shading: { type: ShadingType.CLEAR, fill, color: "auto" },
-    margins: { top: top ? 90 : 20, bottom: top ? 20 : 90, left: 140, right: 140 },
-    verticalAlign: VerticalAlign.CENTER,
-    borders: {
-      top: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-      bottom: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-      left: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-      right: { style: BorderStyle.SINGLE, size: 8, color: WHITE },
-    },
-  });
-  const line = (fn, top) => new TableRow({
-    children: C.fees.map((f, i) => box([fn(f, i)], i, TINT, top)),
-  });
-  return new Table({
-    width: { size: CONTENT_WIDTH, type: WidthType.DXA },
-    columnWidths: w,
-    rows: [
-      line(([label]) => new Paragraph({
-        style: "TableHead", spacing: { before: 0, after: 0 }, alignment: AlignmentType.CENTER,
-        children: [new TextRun({ text: label, color: SLATE })],
-      }), true),
-      line(([, amount]) => new Paragraph({
-        style: "FieldEntry", spacing: { before: 0, after: 0 }, alignment: AlignmentType.CENTER,
-        children: [new TextRun({ text: amount, bold: true, size: 28, color: NAVY })],
-      }), false),
-    ],
-  });
+  return new Table({ width: { size: CONTENT_WIDTH, type: WidthType.DXA }, columnWidths: w, rows: [header, ...rows] });
 }
 
 // "Day 1  ·  Theme" as a single tinted band — one paragraph, easy to retype.
@@ -166,19 +115,11 @@ const doc = new Document({
       new Paragraph({ style: "Kicker", children: [new TextRun(C.kicker)] }),
       new Paragraph({ text: C.title, heading: HeadingLevel.TITLE }),
       new Paragraph({ style: "Standfirst", children: [new TextRun(C.standfirst)] }),
-      metaStrip(),
-      h1(C.scheduleHeading),
-      scheduleGrid(),
+      h1(C.calendarHeading),
+      calendarTable(),
       new Paragraph({
-        style: "Meta", spacing: { before: 90, after: 0 },
-        children: [new TextRun(C.scheduleNote)],
-      }),
-
-      h1(C.feesHeading),
-      feesGrid(),
-      new Paragraph({
-        style: "Meta", spacing: { before: 90, after: 0 },
-        children: [new TextRun(C.feesNote)],
+        style: "Meta", spacing: { before: 100, after: 0 },
+        children: [new TextRun(C.calendarNote)],
       }),
 
       h1("Programme Overview"),
@@ -197,18 +138,9 @@ const doc = new Document({
       }),
 
       new Paragraph({
-        style: "Closing",
-        spacing: { before: 240, after: 60 },
-        shading: { type: ShadingType.CLEAR, fill: TINT, color: "auto" },
-        border: { left: { style: BorderStyle.SINGLE, size: 18, space: 8, color: NAVY } },
-        indent: { left: 140, right: 140 },
-        children: [new TextRun(C.closing)],
-      }),
-      new Paragraph({
         text: "Course Agenda", heading: HeadingLevel.HEADING_1, pageBreakBefore: true,
       }),
       ...agenda,
-
     ],
   }],
 });
