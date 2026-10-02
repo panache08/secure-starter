@@ -1,0 +1,23 @@
+{
+  "theme": "vanorika",
+  "kind": "rate-card",
+  "status": "draft",
+  "title": "Rate card",
+  "subtitle": "Placeholder sample. Prices below are not Vanorika's rates.",
+  "reference": "VT-R-0000",
+  "issueDate": "2026-10-02",
+  "validUntil": "2026-12-31",
+  "currency": "USD",
+  "blocks": [
+    {
+      "type": "rates",
+      "title": "Services",
+      "rows": [
+        { "service": "Placeholder service", "detail": "One line on what is included.", "unit": "once off", "price": 100, "from": true },
+        { "service": "Placeholder service", "detail": "One line on what is included.", "unit": "per month", "price": 10 },
+        { "service": "Placeholder service", "unit": "per hour", "price": 10 }
+      ],
+      "note": "Placeholder: state whether prices include tax."
+    }
+  ]
+}

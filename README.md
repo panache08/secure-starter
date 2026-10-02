@@ -19,6 +19,7 @@ app/
   dashboard/              Protected page (defense-in-depth getUser check)
 supabase/policies.sql     Deny-by-default RLS, per-op policies, verify query
 SECURITY.md               What's hardened + pre-launch checklist
+tools/docgen/             Branded A4 quotations and proposals to PDF (own package, see its README)
 ```
 
 ## Quick start

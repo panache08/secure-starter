@@ -20,3 +20,9 @@ npm-debug.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+
+# docgen: generated PDFs and real client documents stay out of git
+/tools/docgen/node_modules/
+/tools/docgen/out/
+/tools/docgen/documents/
+*.pdf
