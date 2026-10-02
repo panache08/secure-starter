@@ -1,0 +1,32 @@
+{
+  "name": "@vanorika/docgen",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Branded A4 quotations, proposals, profiles and rate cards from structured data, rendered to PDF with headless Chromium.",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "docgen": "./src/cli.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "docgen": "tsx src/cli.ts",
+    "examples": "tsx src/cli.ts render examples/*.json --out out",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/bebas-neue": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/outfit": "^5.3.0",
+    "playwright-core": "^1.63.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,346 @@
+{
+  "theme": "vanorika",
+  "kind": "quotation",
+  "status": "draft",
+  "title": "Long table fixture",
+  "reference": "TEST-LONG",
+  "issueDate": "2026-10-02",
+  "currency": "USD",
+  "client": {
+    "name": "Test fixture client"
+  },
+  "blocks": [
+    {
+      "type": "text",
+      "paragraphs": [
+        "Fixture: a pricing table long enough to span three pages, with the header repeated and totals kept with the last row."
+      ]
+    },
+    {
+      "type": "pricing",
+      "title": "Line items",
+      "items": [
+        {
+          "description": "Placeholder line item 01",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 10.0
+        },
+        {
+          "description": "Placeholder line item 02",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 11.25
+        },
+        {
+          "description": "Placeholder line item 03",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 12.5
+        },
+        {
+          "description": "Placeholder line item 04",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 13.75
+        },
+        {
+          "description": "Placeholder line item 05",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 15.0
+        },
+        {
+          "description": "Placeholder line item 06",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 16.25
+        },
+        {
+          "description": "Placeholder line item 07",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 17.5
+        },
+        {
+          "description": "Placeholder line item 08",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 18.75
+        },
+        {
+          "description": "Placeholder line item 09",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 20.0
+        },
+        {
+          "description": "Placeholder line item 10",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 21.25
+        },
+        {
+          "description": "Placeholder line item 11",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 22.5
+        },
+        {
+          "description": "Placeholder line item 12",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 23.75
+        },
+        {
+          "description": "Placeholder line item 13",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 25.0
+        },
+        {
+          "description": "Placeholder line item 14",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 26.25
+        },
+        {
+          "description": "Placeholder line item 15",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 27.5
+        },
+        {
+          "description": "Placeholder line item 16",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 28.75
+        },
+        {
+          "description": "Placeholder line item 17",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 30.0
+        },
+        {
+          "description": "Placeholder line item 18",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 31.25
+        },
+        {
+          "description": "Placeholder line item 19",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 32.5
+        },
+        {
+          "description": "Placeholder line item 20",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 33.75
+        },
+        {
+          "description": "Placeholder line item 21",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 35.0
+        },
+        {
+          "description": "Placeholder line item 22",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 36.25
+        },
+        {
+          "description": "Placeholder line item 23",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 37.5
+        },
+        {
+          "description": "Placeholder line item 24",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 38.75
+        },
+        {
+          "description": "Placeholder line item 25",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 40.0
+        },
+        {
+          "description": "Placeholder line item 26",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 41.25
+        },
+        {
+          "description": "Placeholder line item 27",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 42.5
+        },
+        {
+          "description": "Placeholder line item 28",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 43.75
+        },
+        {
+          "description": "Placeholder line item 29",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 45.0
+        },
+        {
+          "description": "Placeholder line item 30",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 46.25
+        },
+        {
+          "description": "Placeholder line item 31",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 47.5
+        },
+        {
+          "description": "Placeholder line item 32",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 48.75
+        },
+        {
+          "description": "Placeholder line item 33",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 50.0
+        },
+        {
+          "description": "Placeholder line item 34",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 51.25
+        },
+        {
+          "description": "Placeholder line item 35",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 52.5
+        },
+        {
+          "description": "Placeholder line item 36",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 53.75
+        },
+        {
+          "description": "Placeholder line item 37",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 55.0
+        },
+        {
+          "description": "Placeholder line item 38",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 56.25
+        },
+        {
+          "description": "Placeholder line item 39",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 57.5
+        },
+        {
+          "description": "Placeholder line item 40",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 58.75
+        },
+        {
+          "description": "Placeholder line item 41",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 60.0
+        },
+        {
+          "description": "Placeholder line item 42",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 61.25
+        },
+        {
+          "description": "Placeholder line item 43",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 3,
+          "unit": "units",
+          "unitPrice": 62.5
+        },
+        {
+          "description": "Placeholder line item 44",
+          "quantity": 4,
+          "unit": "units",
+          "unitPrice": 63.75
+        },
+        {
+          "description": "Placeholder line item 45",
+          "quantity": 1,
+          "unit": "units",
+          "unitPrice": 65.0
+        },
+        {
+          "description": "Placeholder line item 46",
+          "detail": "Fixture row used to force the table across pages.",
+          "quantity": 2,
+          "unit": "units",
+          "unitPrice": 66.25
+        }
+      ],
+      "tax": {
+        "label": "VAT",
+        "ratePercent": 15.5
+      }
+    },
+    {
+      "type": "list",
+      "style": "numbered",
+      "title": "Terms",
+      "items": [
+        "Fixture term 1.",
+        "Fixture term 2.",
+        "Fixture term 3.",
+        "Fixture term 4.",
+        "Fixture term 5.",
+        "Fixture term 6.",
+        "Fixture term 7.",
+        "Fixture term 8.",
+        "Fixture term 9.",
+        "Fixture term 10.",
+        "Fixture term 11.",
+        "Fixture term 12.",
+        "Fixture term 13.",
+        "Fixture term 14."
+      ]
+    },
+    {
+      "type": "acceptance"
+    }
+  ]
+}

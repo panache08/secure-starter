@@ -1,0 +1,29 @@
+{
+  "name": "Vanorika Technologies",
+  "company": {
+    "name": "Vanorika Technologies",
+    "tagline": "Security and software",
+    "contact": [
+      "vanorikatechnologies.co.zw",
+      "donovanmudarikwa@vanorikatechnologies.co.zw",
+      "+263 77 690 2542",
+      "Harare, Zimbabwe"
+    ],
+    "footer": "Vanorika Technologies · Harare, Zimbabwe · vanorikatechnologies.co.zw"
+  },
+  "logo": "vanorika/mark.svg",
+  "wordmark": true,
+  "locale": "en-ZW",
+  "colors": {
+    "ink": "#12131C",
+    "muted": "#5B5E6B",
+    "rule": "#DEDAD0",
+    "paper": "#FFFFFF",
+    "accent": "#8A6A17",
+    "band": "#0B0B16",
+    "bandInk": "#F0EDE8",
+    "bandAccent": "#C9A84C",
+    "bandMuted": "#9A9CA8"
+  },
+  "fonts": { "display": "bebas-neue" }
+}

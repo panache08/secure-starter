@@ -1,0 +1,66 @@
+{
+  "theme": "vanorika",
+  "kind": "proposal",
+  "status": "draft",
+  "cover": true,
+  "title": "Placeholder proposal title",
+  "subtitle": "Sample document showing every block type. All content is placeholder text.",
+  "reference": "VT-P-0000",
+  "issueDate": "2026-10-02",
+  "validUntil": "2026-11-01",
+  "currency": "USD",
+  "client": {
+    "name": "Example Client (placeholder)",
+    "attention": "Contact name",
+    "logo": "assets/placeholder-client-logo.svg",
+    "accent": "#2F6F5E"
+  },
+  "blocks": [
+    { "type": "heading", "eyebrow": "01  Context", "text": "What the client asked for" },
+    {
+      "type": "text",
+      "paragraphs": [
+        "Placeholder paragraph. Summarise the client's problem in their own words, and why it matters to their business now.",
+        "Placeholder paragraph. Keep it short; a proposal is read by busy people. **Bold** is the only inline style supported."
+      ]
+    },
+    { "type": "heading", "eyebrow": "02  Approach", "text": "What we will do" },
+    {
+      "type": "list",
+      "style": "check",
+      "items": [
+        "Placeholder outcome one.",
+        "Placeholder outcome two.",
+        "Placeholder outcome three, written as a result the client will see rather than a task we will perform."
+      ]
+    },
+    {
+      "type": "facts",
+      "title": "Timeline",
+      "items": [
+        { "label": "Week 1", "value": "Placeholder milestone" },
+        { "label": "Week 2", "value": "Placeholder milestone" },
+        { "label": "Week 3", "value": "Placeholder milestone and handover" }
+      ]
+    },
+    { "type": "pageBreak" },
+    { "type": "heading", "eyebrow": "03  Investment", "text": "Price" },
+    {
+      "type": "pricing",
+      "items": [
+        { "description": "Placeholder phase one", "detail": "Placeholder detail.", "unitPrice": 100 },
+        { "description": "Placeholder phase two", "detail": "Placeholder detail.", "unitPrice": 100 },
+        { "description": "Placeholder monthly service", "quantity": 12, "unit": "months", "unitPrice": 10 }
+      ],
+      "tax": null,
+      "note": "Placeholder: state the tax position explicitly, e.g. that the issuer is not VAT registered."
+    },
+    {
+      "type": "list",
+      "title": "Terms",
+      "style": "numbered",
+      "items": ["Placeholder term.", "Placeholder term.", "Placeholder term."]
+    },
+    { "type": "acceptance" }
+  ]
+}

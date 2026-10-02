@@ -1,0 +1,23 @@
+{
+  "theme": "vanorika",
+  "kind": "profile",
+  "status": "draft",
+  "title": "Facilitator profile",
+  "subtitle": "Placeholder sample. Replace every field with the facilitator's verified details.",
+  "issueDate": "2026-10-02",
+  "client": { "name": "Example Client (placeholder)" },
+  "blocks": [
+    {
+      "type": "facts",
+      "items": [
+        { "label": "Name", "value": "Placeholder name" },
+        { "label": "Role", "value": "Placeholder role" },
+        { "label": "Certifications", "value": "Placeholder: list only certifications that can be verified" },
+        { "label": "Languages", "value": "Placeholder" }
+      ]
+    },
+    { "type": "heading", "text": "Summary" },
+    { "type": "text", "paragraphs": ["Placeholder biography paragraph."] },
+    { "type": "list", "title": "Relevant experience", "items": ["Placeholder engagement.", "Placeholder engagement.", "Placeholder engagement."] }
+  ]
+}

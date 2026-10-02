@@ -1,0 +1,44 @@
+{
+  "theme": "vanorika",
+  "kind": "quotation",
+  "status": "draft",
+  "title": "Website security audit",
+  "subtitle": "Placeholder sample. Every name, price and term below is illustrative and must be replaced before issuing.",
+  "reference": "VT-Q-0000",
+  "issueDate": "2026-10-02",
+  "validUntil": "2026-11-01",
+  "currency": "USD",
+  "client": {
+    "name": "Example Client (placeholder)",
+    "attention": "Contact name",
+    "lines": ["Street address", "City, Country"],
+    "logo": "assets/placeholder-client-logo.svg"
+  },
+  "blocks": [
+    {
+      "type": "pricing",
+      "title": "Scope and price",
+      "items": [
+        { "description": "Placeholder line item", "detail": "Describe the deliverable in a sentence the client can verify.", "quantity": 1, "unitPrice": 100 },
+        { "description": "Placeholder line item with hours", "detail": "Quantities may have two decimals, e.g. 2.5 hours.", "quantity": 2.5, "unit": "hours", "unitPrice": 40 },
+        { "description": "Placeholder line item", "quantity": 3, "unit": "sites", "unitPrice": 33.33 }
+      ],
+      "tax": { "label": "VAT", "ratePercent": 15 },
+      "note": "Placeholder tax rate. Confirm the current rate and registration before issuing."
+    },
+    {
+      "type": "list",
+      "title": "Terms",
+      "style": "numbered",
+      "items": [
+        "Placeholder term: payment schedule, e.g. **50% on acceptance** and the balance on delivery.",
+        "Placeholder term: what is out of scope.",
+        "Placeholder term: how long this quotation remains valid."
+      ]
+    },
+    {
+      "type": "acceptance",
+      "statement": "Placeholder: signing below accepts the scope, price and terms in this quotation."
+    }
+  ]
+}
